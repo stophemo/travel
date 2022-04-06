@@ -26,14 +26,14 @@ export default {
         desc: '“杀死你，并不是因为我心怀正义，而是我觉得，杀死你让我倍感愉快。”'
       }, {
         id: '0002',
-        imgUrl: require('@/assets/images/暗夜猎手.png'),
-        title: '暗夜猎手 ~ 薇恩',
-        desc: '“杀死你，并不是因为我心怀正义，而是我觉得，杀死你让我倍感愉快。”'
+        imgUrl: require('@/assets/images/暗黑元首.png'),
+        title: '暗黑元首 ~ 辛德拉',
+        desc: '“我的潜能无穷无尽。休想压住我。”'
       }, {
         id: '0003',
-        imgUrl: require('@/assets/images/暗夜猎手.png'),
-        title: '暗夜猎手 ~ 薇恩',
-        desc: '“杀死你，并不是因为我心怀正义，而是我觉得，杀死你让我倍感愉快。”'
+        imgUrl: require('@/assets/images/暗裔剑魔.png'),
+        title: '暗裔剑魔 ~ 亚托克斯',
+        desc: '“我必须连同希望一起毁坏……”'
       }]
     }
   }
