@@ -2,9 +2,9 @@
   <!-- 轮播图组件 -->
   <div class="wrapper">
     <!-- vue awesome swiper 轮播图 -->
-    <swiper :options="swiperOptions">
-      <swiper-slide v-for="(item, index) in swiperList" :key="index">
-        <img class="img" :src="item.url" alt="img" />
+    <swiper :options="swiperOptions" v-if="showSwiper">
+      <swiper-slide v-for="(item, index) in list" :key="index">
+        <img class="img" :src="item.url" alt="img"/>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -14,38 +14,21 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOptions: {
         pagination: '.swiper-pagination', // 轮播标页圆圈
-        loop: true // 是否循环轮播
-      },
-      swiperList: [ // 轮播内容
-        {
-          id: '1',
-          url: require('@/assets/images/True Damage.jpg')
-        },
-        {
-          id: '2',
-          url: require('@/assets/images/真实伤害Ekko.jpg')
-        },
-        {
-          id: '3',
-          url: require('@/assets/images/真实伤害Akali.jpg')
-        },
-        {
-          id: '4',
-          url: require('@/assets/images/真实伤害Qiyana.jpg')
-        },
-        {
-          id: '5',
-          url: require('@/assets/images/真实伤害Yasso.jpg')
-        },
-        {
-          id: '6',
-          url: require('@/assets/images/真实伤害Senna.jpg')
-        }
-      ]
+        loop: true, // 是否循环轮播
+        autoplay: false
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

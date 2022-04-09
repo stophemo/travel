@@ -6,10 +6,10 @@
     </div>
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>
-      真实伤害
+      {{research}}
     </div>
     <div class="header-right">
-      英雄
+      {{hero}}
       <span class="iconfont arrow-icon">&#xe62d;</span>
     </div>
   </div>
@@ -17,7 +17,15 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    hero: String
+  },
+  data () {
+    return {
+      research: '真实伤害'
+    }
+  }
 }
 </script>
 
