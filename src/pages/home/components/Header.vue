@@ -8,10 +8,12 @@
       <span class="iconfont">&#xe632;</span>
       {{research}}
     </div>
+    <router-link to="/city">
     <div class="header-right">
       {{hero}}
       <span class="iconfont arrow-icon">&#xe62d;</span>
     </div>
+    </router-link>
   </div>
 </template>
 
@@ -37,10 +39,10 @@ export default {
   display flex
   // flex-flow: row nowrap;
   // justify-content: space-between;
-  height 0.86rem
+  height $headerHeight
   background $bgColor
   color #fff
-  line-height 0.86rem
+  line-height $headerHeight
   .header-left
     text-align center
     width 0.64rem
@@ -62,6 +64,7 @@ export default {
     width 1.24rem
     // float: right;
     text-align center
+    color white
     .arrow-icon
       font-size 0.2rem
 </style>
