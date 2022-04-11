@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 头部 -->
-    <home-header :hero='hero'></home-header>
+    <home-header></home-header>
     <!-- 轮播图 -->
     <home-swiper :list='swiperList'></home-swiper>
     <!-- icon -->
@@ -32,7 +32,6 @@ export default {
   },
   data () {
     return {
-      hero: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -47,7 +46,6 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
-        this.hero = data.hero
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.recommendList = data.recommendList
