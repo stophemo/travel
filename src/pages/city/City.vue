@@ -18,6 +18,7 @@
 
 <script>
 import axios from 'axios'
+import { mapState } from 'vuex'
 import CityHeader from './components/Header.vue'
 import CitySearch from './components/Search.vue'
 import CityList from './components/List.vue'
@@ -27,10 +28,14 @@ export default {
   name: 'City',
   data () {
     return {
+      lastCity: '',
       cities: {},
       hotCities: [],
       letter: ''
     }
+  },
+  computed: {
+    ...mapState(['city'])
   },
   components: {
     CityHeader,
@@ -55,7 +60,14 @@ export default {
     }
   },
   mounted () {
+    this.lastCity = this.city
     this.getCityInfo()
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getCityInfo()
+    }
   }
 }
 </script>
