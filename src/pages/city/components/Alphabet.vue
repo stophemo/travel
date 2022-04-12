@@ -7,7 +7,7 @@
       :ref="item"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
-      @touchend="handleTouchMove"
+      @touchend="handleTouchEnd"
       @click="handleLetterClick"
     >
       {{ item }}
@@ -58,10 +58,10 @@ export default {
           if (index >= 0 && index <= this.letters.length) {
             this.$emit('change', this.letters[index])
           }
-        }, 16)
+        }, 8)
       }
     },
-    handleTouchEnd () {
+    handleTouchEnd (e) {
       this.touchStatus = false
     }
   }
