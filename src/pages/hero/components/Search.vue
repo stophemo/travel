@@ -5,7 +5,7 @@
         v-model="keyword"
         class="search-input"
         type="text"
-        placeholder="输入城市名或拼音"
+        placeholder="输入英雄名或拼写"
       />
     </div>
     <div class="search-content" ref="search" v-show="keyword">
@@ -14,7 +14,7 @@
           class="search-item border-bottom"
           v-for="item of list"
           :key="item.id"
-          @click="handleCityClick(item.name)"
+          @click="handleHeroClick(item.name)"
         >
           {{ item.name }}
         </li>
@@ -30,9 +30,9 @@
 import Bscroll from 'better-scroll'
 import { mapMutations } from 'vuex'
 export default {
-  name: 'CitySearch',
+  name: 'HeroSearch',
   props: {
-    cities: Object
+    heroes: Object
   },
   data () {
     return {
@@ -57,8 +57,8 @@ export default {
       }
       this.timer = setTimeout(() => {
         const result = []
-        for (let i in this.cities) {
-          this.cities[i].forEach((value) => {
+        for (let i in this.heroes) {
+          this.heroes[i].forEach((value) => {
             if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
               result.push(value)
             }
@@ -69,13 +69,13 @@ export default {
     }
   },
   methods: {
-    handleCityClick (city) {
-      // this.$store.dispatch('changeCity', city)
-      // this.$store.commit('changeCity', city)
-      this.changeCity(city)
+    handleHeroClick (hero) {
+      // this.$store.dispatch('changeHero', hero)
+      // this.$store.commit('changeHero', hero)
+      this.changeHero(hero)
       this.$router.push('/')
     },
-    ...mapMutations(['changeCity'])
+    ...mapMutations(['changeHero'])
   },
   updated () {
     this.scroll = new Bscroll(this.$refs.search)

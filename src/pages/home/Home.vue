@@ -40,11 +40,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(['city'])
+    ...mapState(['hero'])
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoSucc)
+      axios.get('/api/index.json?hero=' + this.hero).then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data

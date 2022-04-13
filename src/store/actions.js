@@ -1,5 +1,5 @@
 export default {
-  // changeCity (ctx, city) {
-  //   ctx.commit('changeCity', city)
+  // changeHero (ctx, hero) {
+  //   ctx.commit('changeHero', hero)
   // }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    城市选择
+    英雄选择
     <router-link to="/">
       <span class="iconfont header-back">&#xe624;</span>
     </router-link>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'CityHeader'
+  name: 'HeroHeader'
 }
 </script>
 

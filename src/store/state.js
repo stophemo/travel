@@ -1,10 +1,10 @@
-let defaultCity = '上海'
+let defaultHero = '上海'
 try {
-  if (localStorage.city) {
-    defaultCity = localStorage.city
+  if (localStorage.hero) {
+    defaultHero = localStorage.hero
   }
 } catch (e) { }
 
 export default {
-  city: defaultCity
+  hero: defaultHero
 }

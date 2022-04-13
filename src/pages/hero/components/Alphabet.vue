@@ -17,14 +17,14 @@
 
 <script>
 export default {
-  name: 'CityAlphabet',
+  name: 'HeroAlphabet',
   props: {
-    cities: Object
+    heroes: Object
   },
   computed: {
     letters () {
       const letters = []
-      for (let i in this.cities) {
+      for (let i in this.heroes) {
         letters.push(i)
       }
       return letters

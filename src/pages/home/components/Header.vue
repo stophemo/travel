@@ -8,9 +8,9 @@
       <span class="iconfont">&#xe632;</span>
       {{ research }}
     </div>
-    <router-link to="/city">
+    <router-link to="/hero">
       <div class="header-right">
-        {{ this.city }}
+        {{ this.hero }}
         <span class="iconfont arrow-icon">&#xe62d;</span>
       </div>
     </router-link>
@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['city'])
+    ...mapState(['hero'])
   }
 }
 </script>
