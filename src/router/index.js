@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home/Home'
 import Hero from '@/pages/hero/Hero'
+import Detail from '@/pages/detail/Detail'
 
 Vue.use(Router)
 
@@ -21,5 +22,9 @@ export default new Router({
     path: '/hero',
     name: 'Hero',
     component: Hero
+  }, {
+    path: '/detail/:id',
+    name: 'Detail',
+    component: Detail
   }]
 })
