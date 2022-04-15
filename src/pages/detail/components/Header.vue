@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     handleScroll () {
+      console.log('scroll')
       const top = document.documentElement.scrollTop
       if (top > 60) {
         let opacity = top / 140
@@ -34,11 +35,13 @@ export default {
       } else {
         this.showAbs = true
       }
-      console.log(document.documentElement.scrollTop)
     }
   },
   activated () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
