@@ -7,7 +7,7 @@
         alt="img"
       />
       <div class="banner-info">
-        <div class="banner-title">暗夜猎手 ~ 薇恩</div>
+        <div class="banner-title">肖娜·薇恩</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe8ba;</span>3
         </div>
