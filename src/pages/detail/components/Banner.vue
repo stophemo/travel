@@ -1,19 +1,20 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img
-        class="banner-img"
-        src="https://game.gtimg.cn/images/lol/universe/v1/assets/images/champion/splash/Vayne_0.jpg"
-        alt="img"
-      />
+      <img class="banner-img" :src="bannerImg" alt="img" />
       <div class="banner-info">
-        <div class="banner-title">肖娜·薇恩</div>
+        <div class="banner-title">{{ this.heroName }}</div>
         <div class="banner-number">
-          <span class="iconfont banner-icon">&#xe8ba;</span>3
+          <span class="iconfont banner-icon">&#xe8ba;</span>
+          {{ this.bannerImgs.length }}
         </div>
       </div>
     </div>
-    <common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    <common-gallary
+      :imgs="bannerImgs"
+      v-show="showGallary"
+      @close="handleGallaryClose"
+    ></common-gallary>
   </div>
 </template>
 
@@ -21,10 +22,14 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
   name: 'DetailBanner',
+  props: {
+    heroName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   data () {
     return {
-      showGallary: false,
-      imgs: ['https://game.gtimg.cn/images/lol/universe/v1/assets/images/champion/splash/Vayne_0.jpg', 'https://game.gtimg.cn/images/lol/universe/v1/assets/images/champion/splash/Vayne_0.jpg']
+      showGallary: false
     }
   },
   methods: {

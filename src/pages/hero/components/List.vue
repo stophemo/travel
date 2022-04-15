@@ -2,7 +2,7 @@
   <div class="list" ref="wrapper">
     <div>
       <div class="area">
-        <div class="title border-topbottom">当前城市</div>
+        <div class="title border-topbottom">当前英雄</div>
         <div class="button-list">
           <div class="button-wrapper">
             <div class="button">{{ this.currentHero }}</div>
@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="area">
-        <div class="title border-topbottom">热门城市</div>
+        <div class="title border-topbottom">热门英雄</div>
         <div class="button-list">
           <div
             class="button-wrapper"
