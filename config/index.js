@@ -6,18 +6,17 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths     webpack dev server提供的
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://localhost:81'
         // secure:false, 
         // chageOrigin: 'true',
-        pathRewrite: {
-          '^/api': '/static/mock'
-        }
+        // pathRewrite: {
+        //   '^/api': '/static/mock'
+        // }
       }
     },
 

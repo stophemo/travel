@@ -1,13 +1,13 @@
 <template>
   <div class="icons">
     <!-- vue awesome swiper 轮播图 -->
-    <swiper :options="swiperOptions"  v-if="list.length">
+    <swiper :options="swiperOptions" v-if="list.length">
       <swiper-slide v-for="(page, pageIndex) in pages" :key="pageIndex">
         <div class="icon" v-for="(item, itemIndex) in page" :key="itemIndex">
           <div class="icon-img">
-            <img class="icon-img-content" :src="item.imgUrl" alt="img">
+            <img class="icon-img-content" :src="item.imgUrl" alt="img" />
           </div>
-          <p class="icon-desc">{{item.description}}</p>
+          <p class="icon-desc">{{ item.description }}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -47,11 +47,12 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 @import '~styles/mixins.styl'
-
 .icons >>> .swiper-container
   height 0
   padding-bottom 50%
 .icons
+  height 0
+  padding-bottom 50%
   margin-top 0.1rem
   .icon
     position relative

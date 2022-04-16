@@ -4,7 +4,7 @@
     <!-- vue awesome swiper 轮播图 -->
     <swiper :options="swiperOptions" v-if="showSwiper">
       <swiper-slide v-for="(item, index) in list" :key="index">
-        <img class="img" :src="item.url" alt="img"/>
+        <img class="img" :src="item.url" alt="img" />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -46,6 +46,12 @@ export default {
   padding-bottom 40%
   position relative
 .wrapper
+  overflow hidden
+  width 100%
+  height 0
+  padding-bottom 40%
+  position relative
+  background #eee
   .img
     display inline-block
     width 100%
