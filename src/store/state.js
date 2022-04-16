@@ -1,4 +1,4 @@
-let defaultHero = '上海'
+let defaultHero = '艾克'
 try {
   if (localStorage.hero) {
     defaultHero = localStorage.hero
