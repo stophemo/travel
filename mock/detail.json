@@ -1,0 +1,47 @@
+{
+  "ret": true,
+  "data": {
+    "heroName": "肖娜·薇恩",
+    "bannerImg": "https://game.gtimg.cn/images/lol/universe/v1/assets/images/champion/splash/Vayne_0.jpg",
+    "gallaryImgs": [
+      "https://game.gtimg.cn/images/lol/universe/v1/assets/images/champion/splash/Vayne_0.jpg",
+      "https://game.gtimg.cn/images/lol/universe/v1/assets/images/champion/splash/Vayne_0.jpg"
+    ],
+    "areaList": [
+      {
+        "title": "德玛西亚",
+        "children": [
+          {
+            "title": "德玛西亚雄都",
+            "children": [
+              {
+                "title": "维罗斯"
+              },
+              {
+                "title": "里索斯"
+              },
+              {
+                "title": "皮纳拉"
+              },
+              {
+                "title": "埃德萨"
+              }
+            ]
+          },
+          {
+            "title": "密银城"
+          }
+        ]
+      },
+      {
+        "title": "弗雷尔卓德"
+      },
+      {
+        "title": "暗影岛"
+      },
+      {
+        "title": "诺克萨斯"
+      }
+    ]
+  }
+}

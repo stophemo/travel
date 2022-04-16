@@ -1,0 +1,137 @@
+{
+  "ret": true,
+  "data": {
+    "research": "真实伤害",
+    "swiperList": [
+      {
+        "id": "0001",
+        "url": "/api/images/真实伤害Ekko.jpg"
+      },
+      {
+        "id": "0002",
+        "url": "/api/images/真实伤害Yasso.jpg"
+      },
+      {
+        "id": "0003",
+        "url": "/api/images/真实伤害Akali.jpg"
+      },
+      {
+        "id": "0004",
+        "url": "/api/images/真实伤害Qiyana.jpg"
+      },
+      {
+        "id": "0005",
+        "url": "/api/images/真实伤害Senna.jpg"
+      },
+      {
+        "id": "0006",
+        "url": "/api/images/True Damage.jpg"
+      }
+    ],
+    "iconList": [
+      {
+        "id": "0001",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/ionia.png",
+        "description": "艾欧尼亚"
+      },
+      {
+        "id": "0002",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/noxus.png",
+        "description": "诺克萨斯"
+      },
+      {
+        "id": "0003",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/freljord.png",
+        "description": "弗雷尔卓德"
+      },
+      {
+        "id": "0004",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/demacia.png",
+        "description": "德玛西亚"
+      },
+      {
+        "id": "0005",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/piltover.png",
+        "description": "皮尔特沃夫"
+      },
+      {
+        "id": "0006",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/zaun.png",
+        "description": "祖安"
+      },
+      {
+        "id": "0007",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/bilgewater.png",
+        "description": "比尔吉沃特"
+      },
+      {
+        "id": "0008",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/shadow-isles.png",
+        "description": "暗影岛"
+      },
+      {
+        "id": "0009",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/ixtal.png",
+        "description": "以绪塔尔"
+      },
+      {
+        "id": "0010",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/shurima.png",
+        "description": "暗影岛"
+      },
+      {
+        "id": "0011",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/shadow-isles.png",
+        "description": "恕瑞玛"
+      },
+      {
+        "id": "0012",
+        "imgUrl": "https://yz.lol.qq.com/zh_CN/map/images/targon.png",
+        "description": "巨神峰"
+      }
+    ],
+    "recommendList": [
+      {
+        "id": "0001",
+        "imgUrl": "/api/images/暗夜猎手.png",
+        "title": "暗夜猎手 ~ 薇恩",
+        "desc": "“杀死你，并不是因为我心怀正义，而是我觉得，杀死你让我倍感愉快。”"
+      },
+      {
+        "id": "0002",
+        "imgUrl": "/api/images/暗黑元首.png",
+        "title": "暗黑元首 ~ 辛德拉",
+        "desc": "“我的潜能无穷无尽。休想压住我。”"
+      },
+      {
+        "id": "0003",
+        "imgUrl": "/api/images/暗裔剑魔.png",
+        "title": "暗裔剑魔 ~ 亚托克斯",
+        "desc": "“我必须连同希望一起毁坏……”"
+      }
+    ],
+    "weekendList": [
+      {
+        "id": "0001",
+        "imgUrl": "https://game.gtimg.cn/images/lol/universe/v1/assets/images/bard-color-splash.jpg",
+        "title": "民谣歌者的真言",
+        "author": "MARCUS TERRELL SMITH",
+        "content": "嘿，你！对，就是你！你这个德玛西亚人看着很体面，懂得倾听——你应该愿意驻足片刻，听听一个老人的惊奇见闻和善意警告吧。你要知道，我正在履行一项使命，是星界游神赋予我的，而你可以帮我"
+      },
+      {
+        "id": "0002",
+        "imgUrl": "https://game.gtimg.cn/images/lol/universe/v1/assets/images/the-dissonant-verses-splash.jpg",
+        "title": "以律乱真",
+        "author": "IAN ST. MARTIN",
+        "content": "“愚人们！”一声怒吼如同鞭子一般抽进了美乐蒂的耳朵。声音从神庙墙外传来，打破了她习以为常的沉静冥思。"
+      },
+      {
+        "id": "0003",
+        "imgUrl": "https://game.gtimg.cn/images/lol/universe/v1/assets/images/copperwood-glade-splash.jpg",
+        "title": "铜树坪坝上的灵怪",
+        "author": "JARED ROSEN",
+        "content": "在如今这个黑暗的时期，人们谈起永恒之森的时候往往都带着几分敬畏，因为无论男女老少都知道那个地方危险至极，世上最后一群荒野之子在那里布满了机关和陷阱。"
+      }
+    ]
+  }
+}
