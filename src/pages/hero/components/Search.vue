@@ -77,8 +77,10 @@ export default {
     },
     ...mapMutations(['changeHero'])
   },
-  updated () {
-    this.scroll = new Bscroll(this.$refs.search)
+  mounted () {
+    this.scroll = new Bscroll(this.$refs.search, {
+      click: true
+    })
   }
 }
 </script>
