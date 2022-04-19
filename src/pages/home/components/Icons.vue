@@ -1,7 +1,7 @@
 <template>
   <div class="icons">
     <!-- vue awesome swiper 轮播图 -->
-    <swiper :options="swiperOptions" v-if="list.length">
+    <swiper :loop="true" v-if="list.length">
       <swiper-slide v-for="(page, pageIndex) in pages" :key="pageIndex">
         <div class="icon" v-for="(item, itemIndex) in page" :key="itemIndex">
           <div class="icon-img">
@@ -15,23 +15,23 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+
 export default {
   name: 'HomeIcons',
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   props: {
     list: Array
   },
-  data () {
-    return {
-      swiperOptions: {
-        loop: true, // 是否循环轮播
-        autoplay: false
-      }
-    }
-  },
-  computed: {
-    pages () {
+  setup (props) {
+    const pages = computed(() => {
       const pages = []
-      this.list.forEach((item, index) => {
+      props.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -39,7 +39,8 @@ export default {
         pages[page].push(item)
       })
       return pages
-    }
+    })
+    return { pages }
   }
 }
 </script>

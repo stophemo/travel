@@ -1,19 +1,28 @@
 <template>
   <div class="container" @click="handleGallaryClick">
     <div class="wrapper">
-      <swiper :options="swiperOptions">
+      <swiper :pagination="{ type: 'fraction' }" :modules="modules">
         <swiper-slide v-for="(item, index) in imgs" :key="index">
           <img class="gallary-img" :src="item" alt="img" />
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
   </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination } from 'swiper';
+import 'swiper/css';
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 export default {
   name: 'CommonGallary',
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   props: {
     imgs: {
       type: Array,
@@ -22,27 +31,16 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      swiperOptions: {
-        pagination: '.swiper-pagination',
-        paginationType: 'fraction',
-        observer: true,
-        observeParents: true
-      }
+  setup (props, context) {
+    function handleGallaryClick () {
+      context.emit('close')
     }
-  },
-  methods: {
-    handleGallaryClick () {
-      this.$emit('close')
-    }
+    return { handleGallaryClick, modules: [Pagination] }
   }
 }
 </script>
 
 <style lang='stylus' scoped>
-.container >>> .swiper-container
-  overflow inherit
 .container
   z-index 99
   display flex
@@ -59,9 +57,11 @@ export default {
     height 0
     padding-bottom 58.93%
     background #ccc
-    .gallary-img
-      width 100%
-    .swiper-pagination
+    .swiper
+      overflow inherit
+    & >>> .swiper-pagination
       bottom -1rem
       color #fff
+    .gallary-img
+      width 100%
 </style>

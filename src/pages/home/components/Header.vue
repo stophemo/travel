@@ -10,7 +10,7 @@
     </div>
     <router-link to="/hero">
       <div class="header-right">
-        {{ this.hero }}
+        {{ hero }}
         <span class="iconfont arrow-icon">&#xe62d;</span>
       </div>
     </router-link>
@@ -18,22 +18,24 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { computed } from 'vue'
+import { useStore, mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  data () {
-    return {
-      research: '真实伤害'
-    }
+  props: {
+    research: String
   },
-  computed: {
-    ...mapState(['hero'])
+  setup () {
+    const store = useStore()
+    const hero = computed(() => {
+      return store.state.hero
+    })
+    return { hero }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-// @import '../../../assets/styles/varibles.styl'
 @import '~styles/varibles.styl'
 .header
   display flex

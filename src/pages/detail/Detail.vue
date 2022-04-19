@@ -1,6 +1,10 @@
 <template>
   <div>
-    <detail-banner :heroName="heroName" :bannerImg="bannerImg" :bannerImgs="gallaryImgs"></detail-banner>
+    <detail-banner
+      :heroName="heroName"
+      :bannerImg="bannerImg"
+      :bannerImgs="gallaryImgs"
+    ></detail-banner>
     <detail-header></detail-header>
     <div class="content">
       <detail-list :list="list"></detail-list>
@@ -13,6 +17,8 @@ import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
 import DetailList from './components/List'
 import axios from 'axios'
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'Detail',
@@ -21,38 +27,34 @@ export default {
     DetailHeader,
     DetailList
   },
-  data () {
-    return {
-      heroName: '',
-      bannerImg: '',
-      gallaryImgs: [],
-      list: []
-    }
-  },
-  methods: {
-    getDetailInfo () {
-      // axios.get('api/detail.json?id=' + this.$route.params.id)
-      axios.get('api/detail.json', {
-        params: {
-          id: this.$route.params.id
-        }
-      }).then(this.handleGetDataSucc)
-    },
-    handleGetDataSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.heroName = data.heroName
-        this.bannerImg = data.bannerImg
-        this.gallaryImgs = data.gallaryImgs
-        this.list = data.areaList
-      }
-    }
-  },
-  mounted () {
-    this.getDetailInfo()
+  setup () {
+    const { heroName, bannerImg, gallaryImgs, list } = useAxiosLogic()
+    return { heroName, bannerImg, gallaryImgs, list }
   }
-  // activated()
+}
+
+function useAxiosLogic () {
+  const heroName = ref('')
+  const bannerImg = ref('')
+  const gallaryImgs = ref([])
+  const list = ref([])
+  const route = useRoute()
+  async function getDetailInfo () {
+    // axios.get('api/detail.json?id=' + this.$route.params.id)
+    let res = await axios.get('api/detail.json', {
+      params: { id: route.params.id }
+    })
+    res = res.data
+    if (res.ret && res.data) {
+      const result = res.data
+      heroName.value = result.heroName
+      bannerImg.value = result.bannerImg
+      gallaryImgs.value = result.gallaryImgs
+      list.value = result.areaList
+    }
+  }
+  onMounted(() => { getDetailInfo() })
+  return { heroName, bannerImg, gallaryImgs, list }
 }
 </script>
 

@@ -3,10 +3,10 @@
     <div class="banner" @click="handleBannerClick">
       <img class="banner-img" :src="bannerImg" alt="img" />
       <div class="banner-info">
-        <div class="banner-title">{{ this.heroName }}</div>
+        <div class="banner-title">{{ heroName }}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe8ba;</span>
-          {{ this.bannerImgs.length }}
+          {{ bannerImgs.length }}
         </div>
       </div>
     </div>
@@ -21,31 +21,25 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import CommonGallary from 'common/gallary/Gallary'
 import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
   name: 'DetailBanner',
+  components: {
+    CommonGallary,
+    FadeAnimation
+  },
   props: {
     heroName: String,
     bannerImg: String,
     bannerImgs: Array
   },
-  data () {
-    return {
-      showGallary: false
-    }
-  },
-  methods: {
-    handleBannerClick () {
-      this.showGallary = true
-    },
-    handleGallaryClose () {
-      this.showGallary = false
-    }
-  },
-  components: {
-    CommonGallary,
-    FadeAnimation
+  setup () {
+    let showGallary = ref(false)
+    function handleBannerClick () { showGallary.value = true }
+    function handleGallaryClose () { showGallary.value = false }
+    return { showGallary, handleBannerClick, handleGallaryClose }
   }
 }
 </script>

@@ -2,36 +2,33 @@
   <!-- 轮播图组件 -->
   <div class="wrapper">
     <!-- vue awesome swiper 轮播图 -->
-    <swiper :options="swiperOptions" v-if="showSwiper">
+    <swiper :loop="true" v-if="showSwiper">
       <swiper-slide v-for="(item, index) in list" :key="index">
         <img class="img" :src="item.url" alt="img" />
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
 
 <script>
-export default {
+import { computed, defineComponent } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+
+export default defineComponent({
   name: 'HomeSwiper',
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   props: {
     list: Array
   },
-  data () {
-    return {
-      swiperOptions: {
-        pagination: '.swiper-pagination', // 轮播标页圆圈
-        loop: true, // 是否循环轮播
-        autoplay: false
-      }
-    }
-  },
-  computed: {
-    showSwiper () {
-      return this.list.length
-    }
+  setup (props) {
+    const showSwiper = computed(() => props.list.length)
+    return { showSwiper }
   }
-}
+})
 </script>
 
 <style lang="stylus" scoped>

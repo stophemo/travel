@@ -25,10 +25,6 @@ export default {
   name: 'HomeRecommond',
   props: {
     list: Array
-  },
-  data () {
-    return {
-    }
   }
 }
 </script>
@@ -57,6 +53,7 @@ export default {
     .item-title
       line-height 0.54rem
       font-size 0.32rem
+      color #000
       ellipsis()
     .item-desc
       line-height 0.4rem

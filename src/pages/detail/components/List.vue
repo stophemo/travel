@@ -15,9 +15,7 @@
 <script>
 export default {
   name: 'DetailList',
-  props: {
-    list: Array
-  }
+  props: { list: Array }
 }
 </script>
 
@@ -37,5 +35,5 @@ export default {
     margin-right 0.1rem
     background-size 0.4rem 3rem
 .item-children
-  padding 0 .2rem
+  padding 0 0.2rem
 </style>

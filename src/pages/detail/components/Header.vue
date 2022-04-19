@@ -13,34 +13,26 @@
 </template>
 
 <script>
+import { ref, onMounted, onUnmounted, reactive } from '@vue/runtime-core'
 export default {
   name: 'DetailHeader',
-  data () {
-    return {
-      showAbs: true,
-      opcityStyle: {
-        opacity: 0
-      }
-    }
-  },
-  methods: {
-    handleScroll () {
+  setup () {
+    let showAbs = ref(true)
+    let opcityStyle = reactive({ opacity: 0 })
+    function handleScroll () {
       const top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
-        this.opcityStyle = { opacity }
-        this.showAbs = false
+        opcityStyle.opacity = opacity
+        showAbs.value = false
       } else {
-        this.showAbs = true
+        showAbs.value = true
       }
     }
-  },
-  mounted () {
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  destroyed () {
-    window.removeEventListener('scroll', this.handleScroll)
+    onMounted(() => { window.addEventListener('scroll', handleScroll) })
+    onUnmounted(() => { window.removeEventListener('scroll', handleScroll) })
+    return { showAbs, opcityStyle }
   }
 }
 </script>
@@ -61,7 +53,7 @@ export default {
     color #fff
     font-size 0.4rem
 .header-fixed
-  z-index: 2
+  z-index 2
   position fixed
   top 0
   left 0

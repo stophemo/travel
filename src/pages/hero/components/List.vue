@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前英雄</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">{{ this.currentHero }}</div>
+            <div class="button">{{ currentHero }}</div>
           </div>
         </div>
       </div>
@@ -22,7 +22,16 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) of heroes" :key="key" :ref="key">
+      <div
+        class="area"
+        v-for="(item, key) of heroes"
+        :key="key"
+        :ref="
+          (elem) => {
+            elems[key] = elem
+          }
+        "
+      >
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list">
           <div
@@ -40,8 +49,10 @@
 </template>
 
 <script>
+import { ref, computed, watch, onUpdated, onActivated, onMounted } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import Bscroll from 'better-scroll'
-import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'HeroList',
   props: {
@@ -49,31 +60,38 @@ export default {
     hot: Array,
     letter: String
   },
-  computed: {
-    ...mapState({
-      currentHero: 'hero'
-    })
-  },
-  methods: {
-    handleHeroClick (hero) {
-      // this.$store.dispatch('changeHero', hero)
-      // this.$store.commit('changeHero', hero)
-      this.changeHero(hero)
-      this.$router.push('/')
-    },
-    ...mapMutations(['changeHero'])
-  },
-  watch: {
-    letter () {
-      if (this.letter) {
-        const element = this.$refs[this.letter][0]
-        this.scroll.scrollToElement(element)
-      }
-    }
-  },
-  updated () {
-    this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+  setup (props) {
+    const { currentHero, handleHeroClick } = useClickLogic()
+    const { wrapper, elems } = useScrollLogic(props)
+    return { elems, wrapper, currentHero, handleHeroClick }
   }
+}
+
+function useClickLogic () {
+  const router = useRouter()
+  const store = useStore()
+  const currentHero = computed(() => { return store.state.hero })
+  function handleHeroClick (hero) {
+    store.commit('changeHero', hero)
+    router.push('/')
+  }
+  return { currentHero, handleHeroClick }
+}
+
+function useScrollLogic (props) {
+  const wrapper = ref(null)
+  const elems = ref([])
+  let scroll = null
+  onMounted(() => { scroll = new Bscroll(wrapper.value, { click: true }) })
+  onUpdated(() => { scroll.refresh() })
+  onActivated(() => {scroll.scrollToElement(wrapper.value)})
+  watch(() => props.letter, (letter, prevLetter) => {
+    if (letter && scroll) {
+      const element = elems.value[letter]
+      scroll.scrollToElement(element)
+    }
+  })
+  return { wrapper, elems }
 }
 </script>
 

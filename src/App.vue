@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <keep-alive exclude="Detail">
-      <router-view />
-      <!-- 显示的是当前路由地址所对应的内容 -->
-    </keep-alive>
+    <router-view v-slot="{ Component }">
+      <keep-alive exclude="Detail">
+        <component :is="Component"/>
+      </keep-alive>
+    </router-view>
   </div>
 </template>

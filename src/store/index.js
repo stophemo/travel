@@ -1,12 +1,9 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
 import state from './state'
 import actions from './actions'
 import mutations from './mutations'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default Vuex.createStore({
   state,
   mutations,
   actions
@@ -15,4 +12,4 @@ export default new Vuex.Store({
   //     return state.hero + ' ' + state.hero
   //   }
   // }
-})
+});
