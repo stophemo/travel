@@ -1,8 +1,9 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 2937383 */
-  src: url('./iconfont/iconfont.woff2?t=1637078923744') format('woff2'),
-       url('./iconfont/iconfont.woff?t=1637078923744') format('woff'),
-       url('./iconfont/iconfont.ttf?t=1637078923744') format('truetype');
+  font-family: "iconfont";
+  /* Project id 2937383 */
+  src: url('./iconfont/iconfont.woff2?t=1650453305462') format('woff2'),
+    url('./iconfont/iconfont.woff?t=1650453305462') format('woff'),
+    url('./iconfont/iconfont.ttf?t=1650453305462') format('truetype');
 }
 
 .iconfont {
@@ -24,4 +25,22 @@
 .icon-sousuo:before {
   content: "\e632";
 } */
+.icon-Iconfont_city:before {
+  content: "\e607";
+}
 
+.icon-tupian:before {
+  content: "\e8ba";
+}
+
+.icon-fanhui:before {
+  content: "\e624";
+}
+
+.icon-jiantouxia:before {
+  content: "\e62d";
+}
+
+.icon-sousuo:before {
+  content: "\e632";
+}

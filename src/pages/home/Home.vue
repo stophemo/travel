@@ -23,19 +23,23 @@ export default {
   components: { HomeHeader, HomeSwiper, HomeIcons, HomeRecommond, HomeWeekend },
   setup () {
     // 请求首页数据
-    const { research, swiperList, iconList, recommendList, weekendList } = useAxiosLogic()
-    // 是否需要重新请求
-    const { lastHero } = useLastHeroLogic()
+    const { lastHero, research, swiperList, iconList, recommendList, weekendList } = useAxiosLogic()
     return { lastHero, research, swiperList, iconList, recommendList, weekendList }
   }
 }
-// 是否需要重新请求数据
-function useLastHeroLogic () {
-  const lastHero = ref('')
+
+// 请求首页数据
+function useAxiosLogic () {
+  let lastHero = ref('')
+  const research = ref('')
+  const swiperList = ref([])
+  const iconList = ref([])
+  const recommendList = ref([])
+  const weekendList = ref([])
   const store = useStore()
   const hero = computed(() => { return store.state.hero })
   async function getHomeInfo () {
-    let res = await axios.get('/api/index.json?hero=' + hero)
+    let res = await axios.get('/api/index.json', { params: { hero: hero.value } })
     res = res.data
     if (res.ret && res.data) {
       const result = res.data
@@ -47,39 +51,17 @@ function useLastHeroLogic () {
     }
   }
   onMounted(() => {
-    lastHero.value = hero
+    getHomeInfo()
+    lastHero.value = hero.value
   })
+  // // 是否需要重新请求数据
   onActivated(() => {
-    if (lastHero.value !== hero) {
-      lastHero.value = hero
+    if (lastHero.value !== hero.value) {
+      lastHero.value = hero.value
       getHomeInfo()
     }
   })
-  return { lastHero }
-}
-// 请求首页数据
-function useAxiosLogic () {
-  const research = ref('')
-  const swiperList = ref([])
-  const iconList = ref([])
-  const recommendList = ref([])
-  const weekendList = ref([])
-  const store = useStore()
-  const hero = computed(() => { return store.state.hero })
-  async function getHomeInfo () {
-    let res = await axios.get('/api/index.json?hero=' + hero)
-    res = res.data
-    if (res.ret && res.data) {
-      const result = res.data
-      research.value = result.research
-      swiperList.value = result.swiperList
-      iconList.value = result.iconList
-      recommendList.value = result.recommendList
-      weekendList.value = result.weekendList
-    }
-  }
-  onMounted(() => { getHomeInfo() })
-  return { research, swiperList, iconList, recommendList, weekendList }
+  return { research, lastHero, swiperList, iconList, recommendList, weekendList }
 }
 
 

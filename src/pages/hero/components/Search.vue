@@ -14,9 +14,9 @@
           class="search-item border-bottom"
           v-for="item of list"
           :key="item.id"
-          @click="handleHeroClick(item.name)"
+          @click="handleHeroClick(item.title)"
         >
-          {{ item.name }}
+          {{ item.title }}
         </li>
         <li class="search-item border-bottom" v-show="hasNoData">
           没有找到匹配数据
@@ -62,7 +62,7 @@ export default {
         const result = []
         for (let i in props.heroes) {
           props.heroes[i].forEach((value) => {
-            if (value.spell.indexOf(keyword) > -1 || value.name.indexOf(keyword) > -1) {
+            if (value.alias.indexOf(keyword) > -1 || value.title.indexOf(keyword) > -1) {
               result.push(value)
             }
           })

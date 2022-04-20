@@ -40,14 +40,13 @@ export default {
     return { data, letter, handleLetterChange }
   }
 }
-
 function useDataLogic () {
   const data = reactive({
     heroes: {},
     hotHeroes: []
   })
   async function getHeroInfo () {
-    let res = await axios.get('/api/hero.json')
+    let res = await axios.get('/api/fixedHeroList.json')
     res = res.data
     if (res.ret && res.data) {
       const result = res.data
@@ -66,4 +65,5 @@ function useLetterLogic () {
   }
   return { letter, handleLetterChange }
 }
+
 </script>

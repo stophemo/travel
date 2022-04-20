@@ -15,10 +15,10 @@
           <div
             class="button-wrapper"
             v-for="item of hot"
-            :key="item.id"
-            @click="handleHeroClick(item.name)"
+            :key="item.heroId"
+            @click="handleHeroClick(item.title)"
           >
-            <div class="button">{{ item.name }}</div>
+            <div class="button">{{ item.title }}</div>
           </div>
         </div>
       </div>
@@ -37,10 +37,10 @@
           <div
             class="item border-bottom"
             v-for="innerItem of item"
-            :key="innerItem.id"
-            @click="handleHeroClick(innerItem.name)"
+            :key="innerItem.heroId"
+            @click="handleHeroClick(innerItem.title)"
           >
-            {{ innerItem.name }}
+            {{ innerItem.title }}
           </div>
         </div>
       </div>
