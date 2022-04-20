@@ -1,4 +1,5 @@
-![输入图片说明](public/QQ%E6%88%AA%E5%9B%BE20220421000106.png)# new-travel
+
+# new-travel
 
 ## Project setup
 ```
@@ -21,3 +22,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ![输入图片说明](public/QQ%E6%88%AA%E5%9B%BE20220420235955.png)
 ![输入图片说明](public/QQ%E6%88%AA%E5%9B%BE20220421000029.png)
 ![输入图片说明](public/QQ%E6%88%AA%E5%9B%BE20220421000056.png)
+![输入图片说明](public/QQ%E6%88%AA%E5%9B%BE20220421000106.png)
